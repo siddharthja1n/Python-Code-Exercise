@@ -14,7 +14,7 @@ while(i):
     elif num > n:
         print(f"The number is less than {num}")
     else:
-        print("Congatulations!! You guessed the number correctly\nYou Won")
+        print(f"Congatulations!! You guessed correct number\nYou took {5-i} chances\nYOU WON")
         break
     if i > 1:
         print(f"{i} chances left to guess the number\n")
