@@ -4,7 +4,7 @@
 # Juse use if else ladder
 
 
-operator = input("Enter an operator from \(+,-,*,\): ")
+operator = input("Enter an operator from (+,-,*,/): ")
 var1 = int(input("Enter first number: "))
 var2 = int(input("Enter second number: "))
 if operator == '-':
