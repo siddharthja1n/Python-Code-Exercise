@@ -11,15 +11,13 @@ while(i):
     i -= 1
     if num < n:
         print(f"The number is greater than {num}")
+        print(f"{i} guess left\n")
     elif num > n:
         print(f"The number is less than {num}")
+        print(f"{i} guess left\n")
     else:
-        print(f"Congatulations!! You guessed correct number\nYou took {5-i} chances\nYOU WON")
+        print(f"Congatulations!! You guessed correct number\nYou took {5-i} chance\nYOU WON")
         break
-    if i > 1:
-        print(f"{i} chances left to guess the number\n")
-    else:
-        print(f"{i} chance left to guess the number\n")
-    if i == 0:
-        print("GAME OVER")
-        print(f"The number is {n}")
+else:
+    print("GAME OVER")
+    print(f"The number is {n}")
