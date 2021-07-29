@@ -2,18 +2,21 @@
 
 import random
 
-life = 10
 computer = 0
 user = 0
 choice = ["Snake", "Water", "Gun"]
 print("Welcome to Snake Water Gun game")
-
-while(life):
+name = input("Enter your Name: ")
+try:
+    round = abs(int(input("How many round you want to play: ")))
+except:
+    print("Invalid input... try again!!")
+while(round):
 
     computer_choice = random.choice(list(choice))
-    print(f"You got {life} life")
+    print(f"You got {round} round left")
 
-    user_choice = int(input("Enter\n'1' for Snake.... "
+    user_choice = int(input("Enter '1' for Snake.... "
                                     "'2' for Water.... "
                                     "'3' for Gun: \n"))
 
@@ -21,7 +24,7 @@ while(life):
         print("You entered incorrect input")
         print("Try again!!")
         continue
-    life -= 1
+    round -= 1
 
     user_choice = choice[user_choice-1]
     if computer_choice == user_choice:
@@ -48,7 +51,7 @@ while(life):
             print(f"Computer Chose {computer_choice}, so you win")
             user += 1
 
-    print(f"YOU - {user} ------------------ COMPUTER - {computer}")
+    print(f"{name} - {user} ------------------ Computer - {computer}")
 
 print("GAME OVER\n")
 if computer == user:

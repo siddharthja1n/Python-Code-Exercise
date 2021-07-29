@@ -1,7 +1,7 @@
 # Exercise 2 : faulty calculator
 # 45*3=555, 56+9=77, 56/6 = 4
 # Design a calculator which will correctly solve all the problems except the faulty ones above
-# Juse use if else ladder
+# Just use if else ladder
 
 
 operator = input("Enter an operator from (+,-,*,/): ")
