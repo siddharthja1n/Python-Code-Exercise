@@ -11,6 +11,8 @@ try:
     round = abs(int(input("How many round you want to play: ")))
 except:
     print("Invalid input... try again!!")
+    exit()
+
 while(round):
 
     computer_choice = random.choice(list(choice))
