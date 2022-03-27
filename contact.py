@@ -125,7 +125,7 @@ class Phone:
                     self.email_entry.delete(0, END)
                     self.number_entry.delete(0, END)
         except ValueError:
-            msg.showerror('Incorrect contact number', "Contact number must be digits")
+            msg.showerror('Incorrect contact number', "Contact number must contain only digits")
 
     # function to reset the fields
     # reset button reset_btn
@@ -260,31 +260,41 @@ class Phone:
 
         # creating cursor to execute queries
         c = conn.cursor()
+        try:
+            if(self.f_name_entry_editor.get() == ''):
+                msg.showerror('No first name', "You can't leave first name empty")
 
-        c.execute("""UPDATE contact SET
-            first_name = :first,
-            last_name = :last,
-            email = :email,
-            phone = :phone
+            elif(self.number_entry_editor.get() == ''):
+                msg.showerror('No contact number', "You can't leave contact number empty")
 
-            WHERE oid = :oid""",
-        {
-            'first': self.f_name_entry_editor.get(),
-            'last' : self.l_name_entry_editor.get(),
-            'email' : self.email_entry_editor.get(),
-            'phone' : self.number_entry_editor.get(),
-            'oid' : self.record_id
-        }
-        )
+            else:
+                int(self.number_entry_editor.get())
+                c.execute("""UPDATE contact SET
+                    first_name = :first,
+                    last_name = :last,
+                    email = :email,
+                    phone = :phone
+
+                    WHERE oid = :oid""",
+                {
+                    'first': self.f_name_entry_editor.get(),
+                    'last' : self.l_name_entry_editor.get(),
+                    'email' : self.email_entry_editor.get(),
+                    'phone' : self.number_entry_editor.get(),
+                    'oid' : self.record_id
+                }
+                )
         
-        # commit the queries into database
-        conn.commit()
+                # commit the queries into database
+                conn.commit()
 
-        # closes the connection
-        conn.close()
+                # closes the connection
+                conn.close()
 
-        # close edit page after record is updated
-        editor.destroy()
+                # close edit page after record is updated
+                editor.destroy()
+        except ValueError:
+            msg.showerror('Incorrect contact number', "Contact number must contain only digits")
 
     # function to close editor page without editing
     # cancel button cancel_btn_editor
